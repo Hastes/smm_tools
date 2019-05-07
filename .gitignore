@@ -1,0 +1,7 @@
+.idea/
+.vscode/
+
+media/
+__pycache__/
+
+*.sqlite3
