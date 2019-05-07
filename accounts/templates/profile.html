@@ -1,0 +1,12 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <section class="connections">
+        {% include 'components/connections.html' %}
+    </section>
+
+    <section class="posts">
+        {% include 'components/ads_create_form.html' with form=ads_create_form %}
+    </section>
+
+{% endblock %}
