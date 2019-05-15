@@ -1,0 +1,46 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block extend_css %}
+    <link type="text/css" rel="stylesheet" href="{% static 'ads/ads-detail.css' %}">
+{% endblock extend_css %}
+
+{% block content %}
+    <section class="ads-detail">
+        <h1>{{ object.name }}</h1>
+        <div class="body">
+            <img class="preview" src="{{ object.preview.url }}"/>
+            <p class="description">{{ object.description }}</p>
+            <p>VK: <span class="status">{% if object.vk_loaded %} ✓ - <a href="{{ object.vk_url }}" target="_blank">открыть</a> {% else %} ✕ {% endif %}</span></p>
+            <p>Facebook: <span class="status">{% if object.facebook_loaded %} ✓ {% else %} ✕ {% endif %}</span></p>
+
+            <div class="socials">
+                <div class="vk">
+                    {% if user.vk_social_account and not object.vk_loaded %}
+                        <form method="POST" action="{% url 'vk-sync' ads.id %}" id="vkForm">{% csrf_token %}
+                            <button type="submit">Добавить в VK</button>
+                            <div class="errors"></div>
+                        </form>
+                    {% endif %}
+
+                </div>
+                <div class="fb">
+                {% if user.facebook_social_account and not object.facebook_loaded %}
+                    <form method="POST" action="{% url 'facebook-sync' ads.id %}" id="facebookForm">{% csrf_token %}
+                        <button type="submit">Добавить в Facebook</button>
+                        <div class="configuration">
+                            <label for="page">Выбор страницы</label>
+                            <select name="page" id="page"></select>
+                        </div>
+                        <div class="errors"></div>
+                    </form>
+                {% endif %}
+                </div>
+
+            </div>
+        </div>
+    </section>
+    {% block extend_js %}
+        <script src="{% static 'ads/index.js' %}"></script>
+    {% endblock %}
+{% endblock content %}

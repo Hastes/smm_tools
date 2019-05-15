@@ -1,0 +1,47 @@
+section.ads-detail {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+section.ads-detail h1 {
+    width: 100%;
+    text-align: center;
+}
+
+section.ads-detail .body {
+    text-align: left;
+}
+
+section.ads-detail .body .description {
+    font-size: 15px;
+}
+
+section.ads-detail .body .status {
+    color: #4183d7;
+}
+
+section.ads-detail .body .preview {
+    max-height: 500px;
+}
+
+section.ads-detail button {
+    margin-left: 0px;
+}
+
+section.ads-detail .socials div {
+    margin-bottom: 10px;
+}
+
+section.ads-detail .configuration {
+    display: none;
+}
+
+section.ads-detail #facebookForm button {
+    transition: .3s all ease-in-out;
+}
+
+section.ads-detail #facebookForm[configurationLoaded] button {
+    box-shadow: 0 0 20px 0 rgba(122,24,13,0.5);
+    transform: scale(1.04);
+}

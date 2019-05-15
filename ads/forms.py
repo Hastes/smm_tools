@@ -6,4 +6,4 @@ class AdsCreateForm(forms.ModelForm):
 
     class Meta:
         model = Ads
-        fields = 'name', 'description', 'preview'
+        fields = 'name', 'description', 'link', 'preview',

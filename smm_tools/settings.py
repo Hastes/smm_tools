@@ -25,7 +25,7 @@ SECRET_KEY = 'frdcgx3)v7nmbh)xd*i^hp!@1n@z9zd-+2h#9hvnd(l-g&4qqu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -115,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-RU'
 
 TIME_ZONE = 'UTC'
 
@@ -130,4 +130,22 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'collectstatic')
+
 AUTH_USER_MODEL = 'accounts.SmmUser'
+
+SOCIALACCOUNT_PROVIDERS = {
+    'vk': {
+        'SCOPE': ['email', 'ads']
+    },
+    'facebook': {
+        'METHOD': 'oauth2',
+        'SCOPE': ['email', 'ads_management', 'ads_read', 'instagram_basic', 'manage_pages', ],
+    }
+}
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'

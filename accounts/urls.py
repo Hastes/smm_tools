@@ -5,5 +5,5 @@ from accounts.views import SocialsView
 
 
 urlpatterns = [
-    path('', SocialsView.as_view()),
+    path('', SocialsView.as_view(), name='get-main'),
 ]

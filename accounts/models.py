@@ -1,7 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
-from allauth.socialaccount.models import SocialAccount
+from allauth.socialaccount.models import SocialAccount, SocialToken
 
 
 class SmmUser(AbstractUser):
@@ -33,6 +33,20 @@ class SmmUser(AbstractUser):
     def facebook_social_account(self):
         if self.has_social_profile:
             return SocialAccount.objects.filter(user=self, provider='facebook').first()
+
+    def get_facebook_token(self):
+        account = self.facebook_social_account
+        if account:
+            tokens = SocialToken.objects.filter(account=account)
+            if tokens.exists():
+                return tokens.last().token
+
+    def get_vk_token(self):
+        account = self.vk_social_account
+        if account:
+            tokens = SocialToken.objects.filter(account=account)
+            if tokens.exists():
+                return tokens.last().token
 
     @property
     def has_aboutinfo(self):

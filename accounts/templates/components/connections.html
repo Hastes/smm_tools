@@ -1,11 +1,17 @@
 {% load i18n %}
+{% load socialaccount %}
 
-<h1>{% trans "Account Connections" %}</h1>
+<h1>Подключенные аккаунты</h1>
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
 
 {% if form.accounts %}
-<p>{% blocktrans %}You can sign in to your account using any of the following third party accounts:{% endblocktrans %}</p>
-
-
 <form method="post" action="{% url 'socialaccount_connections' %}">
 {% csrf_token %}
 
@@ -27,7 +33,7 @@
 {% endfor %}
 
 <div>
-<button type="submit">{% trans 'Remove' %}</button>
+<button type="submit">Удалить</button>
 </div>
 
 </fieldset>
@@ -38,10 +44,19 @@
 <p>{% trans 'You currently have no social network accounts connected to this account.' %}</p>
 {% endif %}
 
-<h2>{% trans 'Add a 3rd Party Account' %}</h2>
+<h2>Добавить аккаунт</h2>
 
 <ul class="socialaccount_providers">
-{% include "socialaccount/snippets/provider_list.html" with process="connect" %}
+{#{% include "socialaccount/snippets/provider_list.html" with process="connect" %}#}
+
+    <li>
+      <a title="vk" class="socialaccount_provider"
+         href="{% provider_login_url "vk" process="connect" next='/' %}">Vk</a>
+    </li>
+    <li>
+      <a title="facebook" class="socialaccount_provider"
+         href="{% provider_login_url "facebook" process="connect" next='/' %}">Facebook</a>
+    </li>
 </ul>
 
 {% include "socialaccount/snippets/login_extra.html" %}

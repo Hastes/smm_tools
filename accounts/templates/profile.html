@@ -6,7 +6,15 @@
     </section>
 
     <section class="posts">
+
+        <h1>Добавить рекламу</h1>
         {% include 'components/ads_create_form.html' with form=ads_create_form %}
+        <div class="ads_list">
+            <p>5 последних созданных объявлений</p>
+            {% for ads in ads_list %}
+                <h5><a href="{{ ads.get_absolute_url }}">{{ ads.name }}</a></h5>
+            {% endfor %}
+        </div>
     </section>
 
 {% endblock %}
