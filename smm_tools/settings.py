@@ -150,3 +150,4 @@ SOCIALACCOUNT_PROVIDERS = {
 LOGIN_URL = '/admin/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
