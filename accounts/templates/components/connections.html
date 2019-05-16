@@ -1,5 +1,6 @@
 {% load i18n %}
 {% load socialaccount %}
+{% load static %}
 
 <h1>Подключенные аккаунты</h1>
 
@@ -51,11 +52,11 @@
 
     <li>
       <a title="vk" class="socialaccount_provider"
-         href="{% provider_login_url "vk" process="connect" next='/' %}">Vk</a>
+         href="{% provider_login_url "vk" process="connect" next='/' %}"><img src="{% static 'img/vk-512.png' %}"></a>
     </li>
     <li>
       <a title="facebook" class="socialaccount_provider"
-         href="{% provider_login_url "facebook" process="connect" next='/' %}">Facebook</a>
+         href="{% provider_login_url "facebook" process="connect" next='/' %}"><img src="{% static 'img/Facebook-share-icon.png' %}"></a>
     </li>
 </ul>
 

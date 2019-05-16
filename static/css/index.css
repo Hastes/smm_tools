@@ -59,7 +59,9 @@ input:not([type=file]), textarea {
     border-bottom: 1px solid #c0d6f2;
 }
 
-
+.socialaccount_providers img {
+    height: 50px;
+}
 
 button {
     font-family: Rubik, sans-serif;
@@ -101,6 +103,7 @@ section.connections h1,h2 {
 
 section.connections ul li {
     text-align: center;
+    display: inline-block;
 }
 
 section.connections fieldset {
@@ -153,7 +156,7 @@ form {
 
 button.no-active,
 button.no-active:hover {
-    background-color: #c0d6f2;
-    color: white;
+    background-color: #c0d6f2 !important;
+    color: white !important;
     cursor: initial;
 }

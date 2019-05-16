@@ -31,6 +31,19 @@ section.ads-detail .body .preview {
 
 section.ads-detail button {
     margin-left: 0px;
+    transition: .2s all ease-in-out;
+}
+
+section.ads-detail button:hover {
+    color: white;
+}
+
+section.ads-detail .fb button {
+    background-color: #3b5998;
+}
+
+section.ads-detail .vk button {
+    background-color: #4d76a1;
 }
 
 section.ads-detail .socials div {
@@ -41,11 +54,12 @@ section.ads-detail .configuration {
     display: none;
 }
 
-section.ads-detail #facebookForm button {
-    transition: .3s all ease-in-out;
+
+section.ads-detail button:hover {
+    transform: scale(1.05);
 }
 
 section.ads-detail #facebookForm[configurationLoaded] button {
-    box-shadow: 0 0 20px 0 rgba(122,24,13,0.5);
+    box-shadow: 0 0 20px 0 rgba(72, 102, 169, 0.5);
     transform: scale(1.04);
 }
