@@ -17,9 +17,15 @@ class FacebookAds():
         self.account_id = FacebookUser(token).get_account_id()
         self.account = AdAccount(self.account_id)
 
-    def add_ads(self, campaign_id, name, description, image):
+    def add_ads(self, campaign_id, creative_id, name):
         adset = self.create_adset(campaign_id, name)
-        adcreative = self.create_adcreative(name, description, image)
+        params = {
+            'name': name,
+            'adset_id': adset['id'],
+            'creative': {'creative_id': creative_id},
+            'status': 'PAUSED',
+        }
+        adcreative = self.account.create_ad(params=params)
         return adcreative
 
     def create_adset(self, campaign_id, name):
@@ -60,7 +66,6 @@ class FacebookAds():
                 }
             }
         }
-
         adcreative = self.account.create_ad_creative(
             params=params
         )

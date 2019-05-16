@@ -17,6 +17,10 @@ section.ads-detail .body .description {
     font-size: 15px;
 }
 
+section.ads-detail .body .link {
+    font-weight: 200;
+}
+
 section.ads-detail .body .status {
     color: #4183d7;
 }

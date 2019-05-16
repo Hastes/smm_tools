@@ -71,11 +71,13 @@ class CreateAdsFacebook(View):
                 user=self.request.user,
                 name='Smm Tools Campaign',
             )
-            fb_user = FacebookUser(token)
             image = fb.upload_image(ads.preview)
-            fb.create_adcreative(ads.name, ads.description, configuration['page'], image['hash'], 'https://mysite.com/')
-
-            return campaign
+            ad_creative = fb.create_adcreative(ads.name, ads.description, configuration['page'], image['hash'], ads.link)
+            fb.add_ads(
+                campaign_id=campaign.facebook_id,
+                creative_id=ad_creative['id'],
+                name=ads.name
+            )
 
 
 class CreateAdsVk(View):

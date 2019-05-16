@@ -11,6 +11,7 @@
         <div class="body">
             <img class="preview" src="{{ object.preview.url }}"/>
             <p class="description">{{ object.description }}</p>
+            <p class="link">{{ object.link }}</p>
             <p>VK: <span class="status">{% if object.vk_loaded %} ✓ - <a href="{{ object.vk_url }}" target="_blank">открыть</a> {% else %} ✕ {% endif %}</span></p>
             <p>Facebook: <span class="status">{% if object.facebook_loaded %} ✓ {% else %} ✕ {% endif %}</span></p>
 
