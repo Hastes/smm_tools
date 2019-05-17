@@ -1,3 +1,4 @@
+from facebook_business.exceptions import FacebookRequestError
 from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse, HttpResponseBadRequest
 from django.views.generic import FormView, View, DetailView
@@ -52,7 +53,10 @@ class CreateAdsFacebook(View):
 
     def post(self, request, ads_id):
         ads = get_object_or_404(Ads, id=ads_id)
-        self.create_ads_facebook(ads, request.POST)
+        try:
+            self.create_ads_facebook(ads, request.POST)
+        except FacebookRequestError as error:
+            return JsonResponse(status=400, data=error._error)
         return JsonResponse(status=200, data={})
 
     def create_ads_facebook(self, ads, configuration):

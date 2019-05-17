@@ -30,6 +30,8 @@
                     <form method="POST" action="{% url 'facebook-sync' ads.id %}" id="facebookForm">{% csrf_token %}
                         <button type="submit">Добавить в Facebook</button>
                         <div class="configuration">
+                            <h4>Страница для продвижения</h4>
+                            <p>Выберите Страницу, которую вы хотите продвигать в своей рекламе. Если у вас еще нет Страницы, вы можете <a href="https://www.facebook.com/pages/create/">создать</a> ее и подключить к вашему рекламному аккаунту типа «песочница».</p>
                             <label for="page">Выбор страницы</label>
                             <select name="page" id="page"></select>
                         </div>

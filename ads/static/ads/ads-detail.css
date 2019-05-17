@@ -11,6 +11,7 @@ section.ads-detail h1 {
 
 section.ads-detail .body {
     text-align: left;
+    margin: 50px;
 }
 
 section.ads-detail .body .description {

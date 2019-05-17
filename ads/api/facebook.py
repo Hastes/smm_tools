@@ -1,5 +1,3 @@
-import facebook
-
 from facebook_business.adobjects.adaccount import AdAccount
 from facebook_business.adobjects.campaign import Campaign
 from facebook_business.adobjects.adset import AdSet
@@ -81,10 +79,11 @@ class FacebookAds():
         campaign = user.campaign_set.first()
         if campaign and campaign.has_facebook():
             return campaign
+
         params = {
             'name': name,
-            'objective': Campaign.Objective.page_likes,
-            'status': Campaign.Status.paused
+            'objective': 'PAGE_LIKES',
+            'status': 'PAUSED'
         }
         adcampaign = self.account.create_campaign(
             params=params
