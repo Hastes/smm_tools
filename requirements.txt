@@ -1,4 +1,9 @@
 Django==2.2.1
+<<<<<<< HEAD
+=======
+#django-allauth==0.39.1
+https://github.com/shulcsm/django-allauth/archive/master.zip
+>>>>>>> 9c73ddfbb7cf7d7f4ac194ad2228662dbacad08f
 Pillow==6.0.0
 requests==2.21.0
 vk-api==11.4.0

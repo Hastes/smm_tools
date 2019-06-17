@@ -143,7 +143,7 @@ SOCIALACCOUNT_PROVIDERS = {
     },
     'facebook': {
         'METHOD': 'oauth2',
-        # 'SCOPE': ['email', 'ads_management', 'ads_read', 'instagram_basic', 'manage_pages', ],
+        'SCOPE': ['email', 'ads_management', 'ads_read', 'instagram_basic', 'manage_pages', ],
     }
 }
 
