@@ -1,5 +1,6 @@
 Django==2.2.1
-django-allauth==0.39.1
+#django-allauth==0.39.1
+https://github.com/shulcsm/django-allauth/archive/master.zip
 Pillow==6.0.0
 requests==2.21.0
 vk-api==11.4.0
